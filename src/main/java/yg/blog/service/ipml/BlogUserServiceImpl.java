@@ -1,0 +1,20 @@
+package yg.blog.service.ipml;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import yg.blog.dao.BlogUserDao;
+import yg.blog.pojo.BlogUser;
+import yg.blog.serivce.BlogUserService;
+
+@Service
+public class BlogUserServiceImpl implements BlogUserService {
+
+    @Autowired
+    BlogUserDao blogUserDao;
+
+    @Override
+    public String selectAll() {
+        BlogUser blogUser =blogUserDao.selectall();
+        return blogUser.getUserName();
+    }
+}

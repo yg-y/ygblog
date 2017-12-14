@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ygblog:war">
+    <output-path>$PROJECT_DIR$/../ygblog/target</output-path>
+    <root id="archive" name="ygblog.war">
+      <element id="artifact" artifact-name="ygblog:war exploded" />
+    </root>
+  </artifact>
+</component>
