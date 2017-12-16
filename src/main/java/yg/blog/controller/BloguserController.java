@@ -22,9 +22,6 @@ public class BloguserController {
     @RequestMapping("/select")
     public List<BlogUser> selectAll(){
         List<BlogUser> blogUsers = blogUserService.selectAll();
-        for (Object str:blogUsers ) {
-            System.out.println(str+"`````````");
-        }
         return blogUsers;
     }
 }

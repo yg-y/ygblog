@@ -3,10 +3,14 @@ function run() {
         url:"bloguser/select",
         type:"GET",
         success:function(result){
-            $.each(result,function (index) {
-                var str = JSON.parse(index);
-                alert("index:"+str);
-            })
+
+            var json = [{"userId":null,"imgId":null,"forumId":null,"likeId":null,"userName":null,"userPassword":null,"userEmail":"627756022@163.com","userGender":null,"userAge":null,"userDate":null},
+                {"userId":null,"imgId":null,"forumId":null,"likeId":null,"userName":null,"userPassword":null,"userEmail":"y627756022@163.com","userGender":null,"userAge":null,"userDate":null}];
+
+            $.each(json.userEmail,function (index) {
+                alert(index);
+            });
+
         },
         error:function (result) {
           alert("数据出错！");

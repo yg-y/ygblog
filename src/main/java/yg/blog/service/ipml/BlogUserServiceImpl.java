@@ -17,9 +17,6 @@ public class BlogUserServiceImpl implements BlogUserService {
     @Override
     public List<BlogUser> selectAll() {
         List<BlogUser> blogUsers = blogUserDao.selectall();
-        for (Object str:blogUsers ) {
-            System.out.println(str+"`````````");
-        }
         return blogUsers;
     }
 }

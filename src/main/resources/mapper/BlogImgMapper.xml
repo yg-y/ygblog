@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yg.blog.dao.BlogImDao">
+  <resultMap id="BaseResultMap" type="yg.blog.pojo.BlogImg">
+    <id column="img_id" jdbcType="INTEGER" property="imgId" />
+    <result column="like_id" jdbcType="INTEGER" property="likeId" />
+    <result column="img_name" jdbcType="VARCHAR" property="imgName" />
+    <result column="img_path" jdbcType="VARCHAR" property="imgPath" />
+    <result column="img_content" jdbcType="VARCHAR" property="imgContent" />
+    <result column="img_date" jdbcType="DATE" property="imgDate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    img_id, like_id, img_name, img_path, img_content, img_date
+  </sql>
+  <select id="selectByExample" parameterType="yg.blog.pojo.BlogImgExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from blog_img
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from blog_img
+    where img_id = #{imgId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from blog_img
+    where img_id = #{imgId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="yg.blog.pojo.BlogImgExample">
+    delete from blog_img
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="yg.blog.pojo.BlogImg">
+    insert into blog_img (img_id, like_id, img_name, 
+      img_path, img_content, img_date
+      )
+    values (#{imgId,jdbcType=INTEGER}, #{likeId,jdbcType=INTEGER}, #{imgName,jdbcType=VARCHAR}, 
+      #{imgPath,jdbcType=VARCHAR}, #{imgContent,jdbcType=VARCHAR}, #{imgDate,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="yg.blog.pojo.BlogImg">
+    insert into blog_img
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="imgId != null">
+        img_id,
+      </if>
+      <if test="likeId != null">
+        like_id,
+      </if>
+      <if test="imgName != null">
+        img_name,
+      </if>
+      <if test="imgPath != null">
+        img_path,
+      </if>
+      <if test="imgContent != null">
+        img_content,
+      </if>
+      <if test="imgDate != null">
+        img_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="imgId != null">
+        #{imgId,jdbcType=INTEGER},
+      </if>
+      <if test="likeId != null">
+        #{likeId,jdbcType=INTEGER},
+      </if>
+      <if test="imgName != null">
+        #{imgName,jdbcType=VARCHAR},
+      </if>
+      <if test="imgPath != null">
+        #{imgPath,jdbcType=VARCHAR},
+      </if>
+      <if test="imgContent != null">
+        #{imgContent,jdbcType=VARCHAR},
+      </if>
+      <if test="imgDate != null">
+        #{imgDate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="yg.blog.pojo.BlogImgExample" resultType="java.lang.Long">
+    select count(*) from blog_img
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update blog_img
+    <set>
+      <if test="record.imgId != null">
+        img_id = #{record.imgId,jdbcType=INTEGER},
+      </if>
+      <if test="record.likeId != null">
+        like_id = #{record.likeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.imgName != null">
+        img_name = #{record.imgName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imgPath != null">
+        img_path = #{record.imgPath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imgContent != null">
+        img_content = #{record.imgContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imgDate != null">
+        img_date = #{record.imgDate,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update blog_img
+    set img_id = #{record.imgId,jdbcType=INTEGER},
+      like_id = #{record.likeId,jdbcType=INTEGER},
+      img_name = #{record.imgName,jdbcType=VARCHAR},
+      img_path = #{record.imgPath,jdbcType=VARCHAR},
+      img_content = #{record.imgContent,jdbcType=VARCHAR},
+      img_date = #{record.imgDate,jdbcType=DATE}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="yg.blog.pojo.BlogImg">
+    update blog_img
+    <set>
+      <if test="likeId != null">
+        like_id = #{likeId,jdbcType=INTEGER},
+      </if>
+      <if test="imgName != null">
+        img_name = #{imgName,jdbcType=VARCHAR},
+      </if>
+      <if test="imgPath != null">
+        img_path = #{imgPath,jdbcType=VARCHAR},
+      </if>
+      <if test="imgContent != null">
+        img_content = #{imgContent,jdbcType=VARCHAR},
+      </if>
+      <if test="imgDate != null">
+        img_date = #{imgDate,jdbcType=DATE},
+      </if>
+    </set>
+    where img_id = #{imgId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="yg.blog.pojo.BlogImg">
+    update blog_img
+    set like_id = #{likeId,jdbcType=INTEGER},
+      img_name = #{imgName,jdbcType=VARCHAR},
+      img_path = #{imgPath,jdbcType=VARCHAR},
+      img_content = #{imgContent,jdbcType=VARCHAR},
+      img_date = #{imgDate,jdbcType=DATE}
+    where img_id = #{imgId,jdbcType=INTEGER}
+  </update>
+</mapper>
