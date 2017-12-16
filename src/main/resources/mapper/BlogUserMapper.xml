@@ -3,12 +3,18 @@
 <mapper namespace="yg.blog.dao.BlogUserDao">
   <resultMap id="BaseResultMap" type="yg.blog.pojo.BlogUser">
     <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="img_id" jdbcType="INTEGER" property="imgId" />
+    <result column="forum_id" jdbcType="INTEGER" property="forumId" />
+    <result column="like_id" jdbcType="INTEGER" property="likeId" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
-    <result column="user_sex" jdbcType="CHAR" property="userSex" />
+    <result column="user_password" jdbcType="VARCHAR" property="userPassword" />
+    <result column="user_email" jdbcType="VARCHAR" property="userEmail" />
+    <result column="user_gender" jdbcType="CHAR" property="userGender" />
     <result column="user_age" jdbcType="INTEGER" property="userAge" />
+    <result column="user_date" jdbcType="DATE" property="userDate" />
   </resultMap>
   <select id="selectall" resultMap="BaseResultMap">
-    select * from blog_user;
+    SELECT user_email FROM blog_user;
   </select>
   <sql id="Example_Where_Clause">
     <where>
@@ -69,7 +75,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    user_id, user_name, user_sex, user_age
+    user_id, img_id, forum_id, like_id, user_name, user_password, user_email, user_gender, 
+    user_age, user_date
   </sql>
   <select id="selectByExample" parameterType="yg.blog.pojo.BlogUserExample" resultMap="BaseResultMap">
     select
@@ -102,10 +109,14 @@
     </if>
   </delete>
   <insert id="insert" parameterType="yg.blog.pojo.BlogUser">
-    insert into blog_user (user_id, user_name, user_sex, 
-      user_age)
-    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userSex,jdbcType=CHAR}, 
-      #{userAge,jdbcType=INTEGER})
+    insert into blog_user (user_id, img_id, forum_id, 
+      like_id, user_name, user_password, 
+      user_email, user_gender, user_age, 
+      user_date)
+    values (#{userId,jdbcType=INTEGER}, #{imgId,jdbcType=INTEGER}, #{forumId,jdbcType=INTEGER}, 
+      #{likeId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userPassword,jdbcType=VARCHAR}, 
+      #{userEmail,jdbcType=VARCHAR}, #{userGender,jdbcType=CHAR}, #{userAge,jdbcType=INTEGER}, 
+      #{userDate,jdbcType=DATE})
   </insert>
   <insert id="insertSelective" parameterType="yg.blog.pojo.BlogUser">
     insert into blog_user
@@ -113,28 +124,64 @@
       <if test="userId != null">
         user_id,
       </if>
+      <if test="imgId != null">
+        img_id,
+      </if>
+      <if test="forumId != null">
+        forum_id,
+      </if>
+      <if test="likeId != null">
+        like_id,
+      </if>
       <if test="userName != null">
         user_name,
       </if>
-      <if test="userSex != null">
-        user_sex,
+      <if test="userPassword != null">
+        user_password,
+      </if>
+      <if test="userEmail != null">
+        user_email,
+      </if>
+      <if test="userGender != null">
+        user_gender,
       </if>
       <if test="userAge != null">
         user_age,
+      </if>
+      <if test="userDate != null">
+        user_date,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="userId != null">
         #{userId,jdbcType=INTEGER},
       </if>
+      <if test="imgId != null">
+        #{imgId,jdbcType=INTEGER},
+      </if>
+      <if test="forumId != null">
+        #{forumId,jdbcType=INTEGER},
+      </if>
+      <if test="likeId != null">
+        #{likeId,jdbcType=INTEGER},
+      </if>
       <if test="userName != null">
         #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="userSex != null">
-        #{userSex,jdbcType=CHAR},
+      <if test="userPassword != null">
+        #{userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmail != null">
+        #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userGender != null">
+        #{userGender,jdbcType=CHAR},
       </if>
       <if test="userAge != null">
         #{userAge,jdbcType=INTEGER},
+      </if>
+      <if test="userDate != null">
+        #{userDate,jdbcType=DATE},
       </if>
     </trim>
   </insert>
@@ -150,14 +197,32 @@
       <if test="record.userId != null">
         user_id = #{record.userId,jdbcType=INTEGER},
       </if>
+      <if test="record.imgId != null">
+        img_id = #{record.imgId,jdbcType=INTEGER},
+      </if>
+      <if test="record.forumId != null">
+        forum_id = #{record.forumId,jdbcType=INTEGER},
+      </if>
+      <if test="record.likeId != null">
+        like_id = #{record.likeId,jdbcType=INTEGER},
+      </if>
       <if test="record.userName != null">
         user_name = #{record.userName,jdbcType=VARCHAR},
       </if>
-      <if test="record.userSex != null">
-        user_sex = #{record.userSex,jdbcType=CHAR},
+      <if test="record.userPassword != null">
+        user_password = #{record.userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userEmail != null">
+        user_email = #{record.userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userGender != null">
+        user_gender = #{record.userGender,jdbcType=CHAR},
       </if>
       <if test="record.userAge != null">
         user_age = #{record.userAge,jdbcType=INTEGER},
+      </if>
+      <if test="record.userDate != null">
+        user_date = #{record.userDate,jdbcType=DATE},
       </if>
     </set>
     <if test="_parameter != null">
@@ -167,9 +232,15 @@
   <update id="updateByExample" parameterType="map">
     update blog_user
     set user_id = #{record.userId,jdbcType=INTEGER},
+      img_id = #{record.imgId,jdbcType=INTEGER},
+      forum_id = #{record.forumId,jdbcType=INTEGER},
+      like_id = #{record.likeId,jdbcType=INTEGER},
       user_name = #{record.userName,jdbcType=VARCHAR},
-      user_sex = #{record.userSex,jdbcType=CHAR},
-      user_age = #{record.userAge,jdbcType=INTEGER}
+      user_password = #{record.userPassword,jdbcType=VARCHAR},
+      user_email = #{record.userEmail,jdbcType=VARCHAR},
+      user_gender = #{record.userGender,jdbcType=CHAR},
+      user_age = #{record.userAge,jdbcType=INTEGER},
+      user_date = #{record.userDate,jdbcType=DATE}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -177,23 +248,47 @@
   <update id="updateByPrimaryKeySelective" parameterType="yg.blog.pojo.BlogUser">
     update blog_user
     <set>
+      <if test="imgId != null">
+        img_id = #{imgId,jdbcType=INTEGER},
+      </if>
+      <if test="forumId != null">
+        forum_id = #{forumId,jdbcType=INTEGER},
+      </if>
+      <if test="likeId != null">
+        like_id = #{likeId,jdbcType=INTEGER},
+      </if>
       <if test="userName != null">
         user_name = #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="userSex != null">
-        user_sex = #{userSex,jdbcType=CHAR},
+      <if test="userPassword != null">
+        user_password = #{userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmail != null">
+        user_email = #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userGender != null">
+        user_gender = #{userGender,jdbcType=CHAR},
       </if>
       <if test="userAge != null">
         user_age = #{userAge,jdbcType=INTEGER},
+      </if>
+      <if test="userDate != null">
+        user_date = #{userDate,jdbcType=DATE},
       </if>
     </set>
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="yg.blog.pojo.BlogUser">
     update blog_user
-    set user_name = #{userName,jdbcType=VARCHAR},
-      user_sex = #{userSex,jdbcType=CHAR},
-      user_age = #{userAge,jdbcType=INTEGER}
+    set img_id = #{imgId,jdbcType=INTEGER},
+      forum_id = #{forumId,jdbcType=INTEGER},
+      like_id = #{likeId,jdbcType=INTEGER},
+      user_name = #{userName,jdbcType=VARCHAR},
+      user_password = #{userPassword,jdbcType=VARCHAR},
+      user_email = #{userEmail,jdbcType=VARCHAR},
+      user_gender = #{userGender,jdbcType=CHAR},
+      user_age = #{userAge,jdbcType=INTEGER},
+      user_date = #{userDate,jdbcType=DATE}
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
 </mapper>

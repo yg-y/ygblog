@@ -6,6 +6,8 @@ import yg.blog.dao.BlogUserDao;
 import yg.blog.pojo.BlogUser;
 import yg.blog.serivce.BlogUserService;
 
+import java.util.List;
+
 @Service
 public class BlogUserServiceImpl implements BlogUserService {
 
@@ -13,8 +15,11 @@ public class BlogUserServiceImpl implements BlogUserService {
     BlogUserDao blogUserDao;
 
     @Override
-    public String selectAll() {
-        BlogUser blogUser =blogUserDao.selectall();
-        return blogUser.getUserName();
+    public List<BlogUser> selectAll() {
+        List<BlogUser> blogUsers = blogUserDao.selectall();
+        for (Object str:blogUsers ) {
+            System.out.println(str+"`````````");
+        }
+        return blogUsers;
     }
 }

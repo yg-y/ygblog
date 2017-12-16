@@ -52,8 +52,9 @@
         </javaClientGenerator>
         <!-- 指定数据库表 -->
         <table schema="ygblog" tableName="blog_user"></table>
-        <!--<table schema="" tableName="orders"></table>-->
-        <!--<table schema="" tableName="items"></table>-->
+        <!--<table schema="ygblog" tableName="blog_like"></table>
+        <table schema="ygblog" tableName="blog_forum"></table>
+        <table schema="ygblog" tableName="blog_img"></table>-->
         <!--<table schema="" tableName="orderdetail"></table>-->
 
         <!-- 有些表的字段需要指定java类型

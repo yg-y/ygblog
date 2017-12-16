@@ -3,7 +3,13 @@ function run() {
         url:"bloguser/select",
         type:"GET",
         success:function(result){
-            alert(result);
+            $.each(result,function (index) {
+                var str = JSON.parse(index);
+                alert("index:"+str);
+            })
+        },
+        error:function (result) {
+          alert("数据出错！");
         }
     });
 }

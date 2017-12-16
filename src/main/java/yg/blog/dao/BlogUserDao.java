@@ -1,6 +1,8 @@
 package yg.blog.dao;
 
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 import yg.blog.pojo.BlogUser;
 import yg.blog.pojo.BlogUserExample;
@@ -28,5 +30,5 @@ public interface BlogUserDao {
 
     int updateByPrimaryKey(BlogUser record);
 
-    BlogUser selectall();
+    List<BlogUser> selectall();   //test
 }
