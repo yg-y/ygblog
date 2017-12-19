@@ -3,13 +3,11 @@ function run() {
         url:"bloguser/select",
         type:"GET",
         success:function(result){
-
-            var json = [{"userId":null,"imgId":null,"forumId":null,"likeId":null,"userName":null,"userPassword":null,"userEmail":"627756022@163.com","userGender":null,"userAge":null,"userDate":null},
-                {"userId":null,"imgId":null,"forumId":null,"likeId":null,"userName":null,"userPassword":null,"userEmail":"y627756022@163.com","userGender":null,"userAge":null,"userDate":null}];
-
-            $.each(json.userEmail,function (index) {
-                alert(index);
-            });
+            var user = result;
+            //功能测试，遍历循环出用户邮箱
+            $.each(user,function (index,items) {
+                alert(items.userEmail);
+            })
 
         },
         error:function (result) {
