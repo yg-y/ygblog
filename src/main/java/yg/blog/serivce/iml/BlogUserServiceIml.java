@@ -1,4 +1,4 @@
-package yg.blog.service.ipml;
+package yg.blog.serivce.iml;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +9,7 @@ import yg.blog.serivce.BlogUserService;
 import java.util.List;
 
 @Service
-public class BlogUserServiceImpl implements BlogUserService {
+public class BlogUserServiceIml implements BlogUserService {
 
     @Autowired
     BlogUserDao blogUserDao;
