@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑内容</title>
+    <!-- JQ -->
+    <script src="../static/myjs/jquery.js"></script>
+    <!-- Bootstrap以及jS文件 -->
+    <script src="../static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <!--公共的-->
+    <script src="../static/myjs/public-js.js"></script>
+    <link rel="stylesheet" href="../static/mycss/public-css.css">
+</head>
+<body>
+    <div class="row">
+        <!--<div class="col-md-3"></div>-->
+        <div class="col-md-12">
+            <div class="page-header">
+                <h1>&nbsp;&nbsp;&nbsp;&nbsp;发布</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h2>请输入标题</h2>
+                    <br>
+                    <div class="input-group input-group-lg">
+                        <input type="text" class="form-control" placeholder="标题" style="width: 150%"/>
+                    </div>
+                    <br>
+                    <h4>内容</h4>
+                    <textarea class="form-control" rows="3" style="height: 200px"></textarea>
+                    <br>
+                    <div>
+                        <button type="button" class="btn btn-warning" data-container="body"
+                                data-toggle="popover" data-placement="bottom"
+                                data-content="暂时还无法使用上传附件功能哦！">
+                            <span class="glyphicon glyphicon-plus"></span>上传
+                        </button>
+                        <!--设置三个空格的间隔-->
+                        &nbsp;&nbsp;&nbsp;
+                        <!--<button type="button" class="btn btn-warning">-->
+                            <!--<span class="glyphicon glyphicon-plus"></span>-->
+                            <!--上传-->
+                        <!--</button>-->
+                        <button type="button" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-ok"></span>
+                            发布
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+</body>
+</html>

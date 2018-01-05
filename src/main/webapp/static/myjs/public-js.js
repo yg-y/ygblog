@@ -12,3 +12,12 @@ $(function(){
         }
     })
 })
+
+//初始化弹出框页面
+$(function () {
+    $('[data-toggle="popover"]').popover()
+})
+
+function run(){
+    alert("点击弹出论坛框")
+}

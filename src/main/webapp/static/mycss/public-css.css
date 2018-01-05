@@ -10,3 +10,14 @@
     color: #0f0f0f;
     background-color: #d6d6d6;
 }
+.div_yinying{
+    padding:10px 25px;
+    background:#a0b3d6;
+    box-shadow:5px 5px 2px #555555;
+    -moz-box-shadow:5px 5px 2px #5f5f5f;
+    -webkit-box-shadow:5px 5px 2px #5f5f5f;
+    position:relative;
+    border-radius:7px 7px 7px 7px;
+    margin:50px 0
+
+}
