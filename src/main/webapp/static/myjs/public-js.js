@@ -17,7 +17,3 @@ $(function(){
 $(function () {
     $('[data-toggle="popover"]').popover()
 })
-
-function run(){
-    alert("点击弹出论坛框")
-}

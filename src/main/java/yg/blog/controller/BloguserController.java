@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import yg.blog.pojo.BlogUser;
 import yg.blog.serivce.BlogUserService;
+import yg.blog.utils.ImageUtils;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,4 +26,15 @@ public class BloguserController {
         List<BlogUser> blogUsers = blogUserService.selectAll();
         return blogUsers;
     }
+
+    @ResponseBody
+    @RequestMapping("/uploadImg")
+    public void uploadImg(HttpServletRequest request){
+        String path = request.getSession().getServletContext().getContextPath();
+        path = path + "static/img/img01.jpg";
+
+        String path2 = path + "static/img/img01scale.jpg";
+        ImageUtils.scale(path,path2,2,true);
+    }
+
 }

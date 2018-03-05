@@ -24,6 +24,7 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
+
     <!-- 所有的请求都拦截到dispatcherServlet中解析，如果有静态的js.html等需要使用restful进行处理。 -->
     <servlet-mapping>
         <servlet-name>dispatcherServlet</servlet-name>
