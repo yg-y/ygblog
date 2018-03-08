@@ -31,4 +31,6 @@ public interface BlogUserDao {
     int updateByPrimaryKey(BlogUser record);
 
     List<BlogUser> selectall();   //test
+
+    BlogUser login(String username, String password);
 }

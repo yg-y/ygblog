@@ -19,4 +19,9 @@ public class BlogUserServiceIml implements BlogUserService {
         List<BlogUser> blogUsers = blogUserDao.selectall();
         return blogUsers;
     }
+
+    @Override
+    public BlogUser login(String username, String password) {
+        return blogUserDao.login(username, password);
+    }
 }

@@ -1,13 +1,15 @@
 function run() {
     $.ajax({
-        url:"bloguser/select",
+        url:"bloguser/uploadImg",
         type:"GET",
         success:function(result){
-            var user = result;
-            //功能测试，遍历循环出用户邮箱
-            $.each(user,function (index,items) {
-                alert(items.userEmail);
-            })
+            // var user = result;
+            // //功能测试，遍历循环出用户邮箱
+            // $.each(user,function (index,items) {
+            //     alert(items.userEmail);
+            // })
+
+            alert("success!")
 
         },
         error:function (result) {

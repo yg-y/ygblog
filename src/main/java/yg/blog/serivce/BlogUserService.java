@@ -9,4 +9,6 @@ import java.util.Map;
 @Service
 public interface BlogUserService {
     List<BlogUser> selectAll();
+
+    BlogUser login(String username, String password);
 }

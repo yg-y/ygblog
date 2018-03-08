@@ -25,15 +25,15 @@ import javax.servlet.http.HttpServletRequest;
 //------------
 public class test {
 
-    @Autowired
-    BloguserController bloguserController;
-
-    @Autowired
-    HttpServletRequest request;
-
-
-    @Test
-    public void run(){
-        bloguserController.uploadImg(request);
-    }
+//    @Autowired
+//    BloguserController bloguserController;
+//
+//    @Autowired
+//    HttpServletRequest request;
+//
+//
+//    @Test
+//    public void run(){
+//        bloguserController.uploadImg(request);
+//    }
 }

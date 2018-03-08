@@ -16,6 +16,17 @@
   <select id="selectall" resultMap="BaseResultMap">
     SELECT user_email FROM blog_user;
   </select>
+
+  <!--login-->
+  <select id="login" resultMap="BaseResultMap" parameterType="java.lang.String">
+    SELECT user_name
+    FROM blog_user
+    WHERE
+    user_name = #{username}
+    AND
+    user_password = #{password}
+    ;
+  </select>
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
