@@ -6,12 +6,26 @@ function login() {
     $.ajax({
         url:"/bloguser/login",
         type:"POST",
-        date:"{username:'" + username + "',password:'" + password + "'}",
+        contentType: "application/x-www-form-urlencoded",
+        data : {'username':username,'password':password},
+        dataType : "text",
         success:function(result){
-            alert(result);
+            if(result == "success"){
+                location.href="system.html"
+            }else {
+                location.href="/system"
+            }
         },
         error:function (result) {
-            alert(result);
+            if(result == "error"){
+                location.href="/system"
+            }
         }
     });
 }
+
+$(document).keypress(function (e) {
+    if (e.which == 13){
+        login();
+    }
+})

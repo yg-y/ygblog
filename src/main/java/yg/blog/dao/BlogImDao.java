@@ -27,4 +27,6 @@ public interface BlogImDao {
     int updateByPrimaryKeySelective(BlogImg record);
 
     int updateByPrimaryKey(BlogImg record);
+
+    List<BlogImg> queryAll();
 }

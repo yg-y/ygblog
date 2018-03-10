@@ -10,6 +10,14 @@
     <script src="static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script src="static/myjs/ygblog-js.js"></script>
 </head>
+<style type="text/css">
+    .vertical-center{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
 <body>
 <div class="container-fluid">
     <div class="row">
@@ -22,24 +30,50 @@
                     <p><a class="btn btn-info btn-lg" role="button" onclick="run()">了解他</a></p>
                 </div>
         </div>
-    </div>
+</div>
             <!--导航条-->
-            <div class="col-md-5"></div>
-            <div class="container-fluid " >
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">首页</a>
+<!--<div class="row">-->
+    <!--<div class="col-md-12">-->
+        <!--<div class="center-block">-->
+            <!--&lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;-->
+            <!--<div class="navbar-header">-->
+                <!--<a class="navbar-brand" href="index.html">首页</a>-->
+            <!--</div>-->
+            <!--<div class="navbar-header">-->
+                <!--<a class="navbar-brand" href="works/works.html">作品</a>-->
+            <!--</div>-->
+            <!--<div class="navbar-header">-->
+                <!--<a class="navbar-brand" href="webpage/forum.html">论坛</a>-->
+            <!--</div>-->
+            <!--<div class="navbar-header">-->
+                <!--<a class="navbar-brand" href="webpage/personal.html">个人</a>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="vertical-center">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="index.html">首页</a>
+                    </div>
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="works/works.html">作品</a>
+                    </div>
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="webpage/forum.html">论坛</a>
+                    </div>
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="webpage/personal.html">个人</a>
+                    </div>
                 </div>
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="works/works.html">作品</a>
-                </div>
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="webpage/forum.html">论坛</a>
-                </div>
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="webpage/personal.html">个人</a>
-                </div>
+
             </div>
+
+        </div>
+
+        <br/>
         <div class="row">
             <hr style="width: 70% ; color: #2aabd2 ;">
         </div>
@@ -97,15 +131,7 @@
             <p id="a_imgLonding" style="color:#9E9F9F;text-align: center" onclick="Loding();">加载更多</p>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="center-block" style="margin-left: 40%">
-                <img src="static/img/logodow.png" height="225" width="400"/>
-            </div>
-        </div>
-    </div>
-
+    <br/>
 
     <div class="row" style="background-color: #262727;">
         <div class="col-md-2"></div>

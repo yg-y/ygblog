@@ -32,5 +32,5 @@ public interface BlogUserDao {
 
     List<BlogUser> selectall();   //test
 
-    BlogUser login(String username, String password);
+    List<BlogUser> login(Map<String, String> map);
 }

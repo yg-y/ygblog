@@ -10,5 +10,5 @@ import java.util.Map;
 public interface BlogUserService {
     List<BlogUser> selectAll();
 
-    BlogUser login(String username, String password);
+    List<BlogUser> login(Map<String, String> map);
 }

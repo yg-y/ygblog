@@ -18,7 +18,7 @@
   </select>
 
   <!--login-->
-  <select id="login" resultMap="BaseResultMap" parameterType="java.lang.String">
+  <select id="login" resultMap="BaseResultMap" parameterType="java.util.Map">
     SELECT user_name
     FROM blog_user
     WHERE

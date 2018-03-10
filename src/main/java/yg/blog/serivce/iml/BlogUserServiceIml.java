@@ -7,6 +7,7 @@ import yg.blog.pojo.BlogUser;
 import yg.blog.serivce.BlogUserService;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BlogUserServiceIml implements BlogUserService {
@@ -21,7 +22,8 @@ public class BlogUserServiceIml implements BlogUserService {
     }
 
     @Override
-    public BlogUser login(String username, String password) {
-        return blogUserDao.login(username, password);
+    public List<BlogUser> login(Map<String, String> map) {
+        return blogUserDao.login(map);
     }
+
 }

@@ -70,6 +70,18 @@
   <sql id="Base_Column_List">
     img_id, like_id, img_name, img_path, img_content, img_date
   </sql>
+
+  <!--queryAll-->
+  <select id="queryAll" resultMap="BaseResultMap">
+    SELECT blog_img.img_id,
+        blog_img.img_name,
+        blog_img.img_path,
+        blog_img.img_content,
+        blog_img.img_date
+    FROM blog_img
+    ORDER BY blog_img.img_date DESC
+  </select>
+
   <select id="selectByExample" parameterType="yg.blog.pojo.BlogImgExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
