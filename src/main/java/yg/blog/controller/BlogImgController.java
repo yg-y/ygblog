@@ -16,7 +16,7 @@ import java.util.Map;
 @RequestMapping("/img")
 public class BlogImgController {
 
-    @Autowired(required=true)
+    @Autowired
     BlogImgService blogImgService;
 
 
