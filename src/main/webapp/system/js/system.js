@@ -5,25 +5,12 @@ $(document).ready(function() {
         contentType: "application/x-www-form-urlencoded",
         success:function(result){
             if(result.status == 200){
-                var img = new Vue({
-                    el:'#app1',
-                    data:{
-                        images:[
-                            {
-                                message:{
-                                    imgId:this.data.imgId,
-                                    imgName:this.data.imgName,
-                                    imgPath:this.data.imgPath,
-                                    imgPath:this.data.imgPath,
-                                    imgDate:this.data.imgDate
-                                }
-                            }
-                        ]
+                new Vue({
+                   el:'#app1',
+                   data:{
+                       images:result.data
                     }
-                })
-                $.each(result.data,function () {
-                    console.log(this.imgPath)
-                })
+                  })
             }else {
                 alert("error")
             }
@@ -35,4 +22,5 @@ $(document).ready(function() {
         }
     });
 });
+
 

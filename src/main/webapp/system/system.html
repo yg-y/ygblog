@@ -85,45 +85,15 @@
                 </tr>
                 </thead>
                 <tbody id="app1">
-                <tr v-for="img in images">
-                    <th scope="row">{{ img.message.imgId }}</th>
-                    <td>{{ img.message.imgName }}</td>
-                    <td>{{ img.message.imgPath }}</td>
-                    <td>{{ img.message.imgContent }}</td>
-                    <td>{{ img.message.imgDate }}</td>
-                    <td>{{ img.message.imgId }}</td>
-                </tr>
-                <!--<tr>-->
-                    <!--<th scope="row">1</th>-->
-                    <!--<td>Mark</td>-->
-                    <!--<td>Otto</td>-->
-                    <!--<td>@mdo</td>-->
-                    <!--<td>@mdo</td>-->
-                    <!--<td>-->
-                        <!--<button type="button" class="btn btn-primary btn-sm">编辑</button>-->
-                        <!--<button type="button" class="btn btn-danger btn-sm">删除</button>-->
-                    <!--</td>-->
-                <!--</tr>-->
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>@mdo</td>
+                 <tr v-for="img in images">
+                    <th scope="row">{{ img.imgId }}</th>
+                    <td>{{ img.imgName }}</td>
+                    <td>{{ img.imgPath }}</td>
+                    <td>{{ img.imgContent }}</td>
+                    <td>{{ img.imgDate }}</td>
                     <td>
-                        <button type="button" class="btn btn-primary btn-sm">编辑</button>
-                        <button type="button" class="btn btn-danger btn-sm">删除</button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry the Bird</td>
-                    <td>@twitter</td>
-                    <td>@mdo</td>
-                    <td>#younger</td>
-                    <td>
-                        <button type="button" class="btn btn-primary btn-sm">编辑</button>
-                        <button type="button" class="btn btn-danger btn-sm">删除</button>
+                        <button type="button" :id="img.imgId"  class="btn btn-primary btn-sm">编辑</button>
+                        <button type="button" :id="img.imgId" class="btn btn-danger btn-sm">删除</button>
                     </td>
                 </tr>
                 </tbody>

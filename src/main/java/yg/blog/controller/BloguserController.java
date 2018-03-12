@@ -34,6 +34,7 @@ public class BloguserController {
         return blogUsers;
     }
 
+
     @ResponseBody
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String login(@RequestParam(value = "username") String username,@RequestParam(value = "password") String password){
