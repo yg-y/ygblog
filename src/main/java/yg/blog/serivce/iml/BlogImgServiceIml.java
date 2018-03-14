@@ -18,4 +18,19 @@ public class BlogImgServiceIml implements BlogImgService {
     public List<BlogImg> queryAll() {
         return blogImDao.queryAll();
     }
+
+    @Override
+    public List<BlogImg> editimg(String id) {
+        return blogImDao.editimg(id);
+    }
+
+    @Override
+    public Integer del(String id) {
+        return blogImDao.del(id);
+    }
+
+    @Override
+    public Integer updateEdit(BlogImg blogImg) {
+        return blogImDao.updateEdit(blogImg);
+    }
 }

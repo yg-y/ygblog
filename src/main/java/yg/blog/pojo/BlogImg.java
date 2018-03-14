@@ -1,5 +1,7 @@
 package yg.blog.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class BlogImg {
@@ -55,6 +57,7 @@ public class BlogImg {
         this.imgContent = imgContent == null ? null : imgContent.trim();
     }
 
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     public Date getImgDate() {
         return imgDate;
     }

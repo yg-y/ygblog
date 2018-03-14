@@ -70,6 +70,28 @@
   <sql id="Base_Column_List">
     img_id, like_id, img_name, img_path, img_content, img_date
   </sql>
+  <!--updateEdit-->
+  <update id="updateEdit" parameterType="yg.blog.pojo.BlogImg">
+    UPDATE ygblog.blog_img
+    SET
+    img_name = #{imgName},
+    img_path = #{imgPath},
+    img_content = #{imgContent}
+    WHERE img_id = #{imgId}
+  </update>
+  <!--del-->
+  <delete id="del" parameterType="java.lang.String">
+    DELETE FROM ygblog.blog_img WHERE blog_img.img_id = #{id}
+  </delete>
+  <!--editimg-->
+  <select id="editimg" resultMap="BaseResultMap" parameterType="java.lang.String">
+    SELECT
+        blog_img.img_name,
+        blog_img.img_path,
+        blog_img.img_content
+    FROM blog_img
+    WHERE img_id = #{id}
+  </select>
 
   <!--queryAll-->
   <select id="queryAll" resultMap="BaseResultMap">

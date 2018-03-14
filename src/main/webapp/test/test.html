@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <title>Index Page</title>
+    <script src="../static/myjs/jquery.min.js"></script>
+
+</head>
+
+<body>
+<form action="" id="demo">
+    <input type="text" value="调试 vuejs 2.0" ref="input1">
+    <a href="javascript:void(0)" v-on:click="test1">测试</a>
+    <br>
+    <span>{{ result1 }}</span>
+    <br>
+
+    <input type="text" v-model="input2">
+    <a href="javascript:void(0)" v-on:click="test2">测试</a>
+    <br>
+    <span>{{ result2 }}</span>
+</form>
+
+<script src="https://cdn.bootcss.com/vue/2.0.3/vue.min.js"></script>
+<script type="text/javascript" src="demo.js"></script>
+</body>
+
+</html>

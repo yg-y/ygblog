@@ -29,4 +29,10 @@ public interface BlogImDao {
     int updateByPrimaryKey(BlogImg record);
 
     List<BlogImg> queryAll();
+
+    List<BlogImg> editimg(String id);
+
+    Integer del(String id);
+
+    Integer updateEdit(BlogImg blogImg);
 }

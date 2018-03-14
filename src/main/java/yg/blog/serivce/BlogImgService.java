@@ -10,4 +10,10 @@ import java.util.List;
 public interface BlogImgService {
 
     List<BlogImg> queryAll();
+
+    List<BlogImg> editimg(String id);
+
+    Integer del(String id);
+
+    Integer updateEdit(BlogImg blogImg);
 }
