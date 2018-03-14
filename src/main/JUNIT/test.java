@@ -3,9 +3,14 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import redis.clients.jedis.Jedis;
 import yg.blog.controller.BloguserController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @Author : YangGuang
@@ -36,4 +41,26 @@ public class test {
 //    public void run(){
 //        bloguserController.uploadImg(request);
 //    }
+
+
+    public static void main(String[] args) {
+        Jedis jedis = new Jedis();
+        List<String> list = new ArrayList<String>();
+        list.add("List Hello Redis!");
+        list.add("List Hello Java!");
+        list.add("List Hello Word!");
+
+        Map<String,String> map = new HashMap<String, String>();
+        map.put("1","Map Hello Redis!");
+        map.put("2","Map Hello Java!");
+        map.put("3","Map Hello Word!");
+
+        jedis.set("greeting", String.valueOf(list));
+        jedis.set("map", String.valueOf(map));
+
+        System.err.println(jedis.get("map"));
+        System.err.println(jedis.get("greeting"));
+    }
 }
+
+

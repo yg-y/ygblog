@@ -5,7 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import yg.blog.pojo.BlogImg;
 import yg.blog.serivce.BlogImgService;
+import yg.blog.utils.ImageUtils;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -68,5 +71,24 @@ public class BlogImgController {
             return map;
         }
         return (Map<String, Object>) map.put("status",500);
+    }
+
+    @ResponseBody
+    @RequestMapping("/uploadImg")
+    public void uploadImg(HttpServletRequest request) throws UnsupportedEncodingException {
+
+        request.setCharacterEncoding("UTF-8");
+        //获取文件的路径
+//        String path = session.getServletContext().getRealPath("/")+"webapp/static/img/img01.jpg";
+//        String url = session.getServletContext().getRealPath("/") + "resources / images / act / worldcup_merge / worldcup720.png” ;
+//        String path = request.getSession().getServletContext().getContextPath();
+//        String path2 = session.getServletContext().getRealPath("/")+"webapp/static/imgChange/img001.jpg";
+        String path = request.getSession().getServletContext().getRealPath("/")+"static/img/img05-index.jpg";
+        String path2 = request.getSession().getServletContext().getRealPath("/")+"static/imgChange/img05-indexscale2.jpg";
+        System.out.println("path: " + path);
+        ImageUtils.scale2(path,path2,1080,1920,true);
+        System.out.println("path: " + path);
+//        String path2 = path + "static/img/img01scale.jpg";
+//        ImageUtils.scale(path,path2,2,true);
     }
 }

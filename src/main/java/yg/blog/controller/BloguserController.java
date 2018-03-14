@@ -50,23 +50,6 @@ public class BloguserController {
     }
 
 
-    @ResponseBody
-    @RequestMapping("/uploadImg")
-    public void uploadImg(HttpServletRequest request) throws UnsupportedEncodingException {
 
-        request.setCharacterEncoding("UTF-8");
-        //获取文件的路径
-//        String path = session.getServletContext().getRealPath("/")+"webapp/static/img/img01.jpg";
-//        String url = session.getServletContext().getRealPath("/") + "resources / images / act / worldcup_merge / worldcup720.png” ;
-//        String path = request.getSession().getServletContext().getContextPath();
-//        String path2 = session.getServletContext().getRealPath("/")+"webapp/static/imgChange/img001.jpg";
-        String path = request.getSession().getServletContext().getRealPath("/")+"static/img/img05-index.jpg";
-        String path2 = request.getSession().getServletContext().getRealPath("/")+"static/imgChange/img05-indexscale2.jpg";
-        System.out.println("path: " + path);
-        ImageUtils.scale2(path,path2,1080,1920,true);
-        System.out.println("path: " + path);
-//        String path2 = path + "static/img/img01scale.jpg";
-//        ImageUtils.scale(path,path2,2,true);
-    }
 
 }

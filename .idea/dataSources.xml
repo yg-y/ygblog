@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="ygblog@localhost" uuid="d6f0f5c4-19aa-41fa-ae7f-c7c0276bc164">
+    <data-source source="LOCAL" name="ygblog@localhost" uuid="0450a410-849e-4959-8394-2e63f50190e6">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
+      <remarks>ygblog</remarks>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/ygblog</jdbc-url>
       <driver-properties>
