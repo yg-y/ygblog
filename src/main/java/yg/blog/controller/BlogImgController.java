@@ -1,13 +1,17 @@
 package yg.blog.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import yg.blog.pojo.BlogImg;
 import yg.blog.serivce.BlogImgService;
 import yg.blog.utils.ImageUtils;
+import yg.blog.utils.UploadFileUtils;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
@@ -75,7 +79,7 @@ public class BlogImgController {
 
     @ResponseBody
     @RequestMapping("/uploadImg")
-    public void uploadImg(HttpServletRequest request) throws UnsupportedEncodingException {
+    public void uploadImg(@RequestParam(value = "files")MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
 
         request.setCharacterEncoding("UTF-8");
         //获取文件的路径
@@ -85,8 +89,11 @@ public class BlogImgController {
 //        String path2 = session.getServletContext().getRealPath("/")+"webapp/static/imgChange/img001.jpg";
         String path = request.getSession().getServletContext().getRealPath("/")+"static/img/img05-index.jpg";
         String path2 = request.getSession().getServletContext().getRealPath("/")+"static/imgChange/img05-indexscale2.jpg";
+        UploadFileUtils uploadFileUtils = new UploadFileUtils();
+        JSONObject jsonObject = uploadFileUtils.filesUpload(request, response, file);
+        System.err.println(jsonObject);
         System.out.println("path: " + path);
-        ImageUtils.scale2(path,path2,1080,1920,true);
+//        ImageUtils.scale2(file,path2,1080,1920,true);
         System.out.println("path: " + path);
 //        String path2 = path + "static/img/img01scale.jpg";
 //        ImageUtils.scale(path,path2,2,true);

@@ -116,4 +116,25 @@ function editUpdate(){
      })
 }
 
+function addImg(){
+    $.ajax({
+            url:"/img/uploadImg",
+            type:'POST',
+            cache: false,
+            data: {'files':new FormData($('#uploadform')[0])},
+            processData: false,
+            contentType: false,
+            success:function(result){
+                if(result.status == 200){
+                    location.reload();
+                }else{
+                    alert("编辑失败，请稍后再试！")
+                }
+            },
+            error:function(result){
+                alert("数据异常，请稍后再试！ " + result)
+            }
+         })
+}
+
 

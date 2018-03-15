@@ -18,6 +18,10 @@ function run() {
     });
 }
 function Loding() {
+    var path=location.hostname;
+    var port = location.port;
+    var pathport = path+":"+port;
+    alert(pathport);
     //如果点击加载更多，则执行这个函数，加载完后文本重置。
     // var a_imgloding = $('#a_imgLonding');
     // a_imgloding.innerHTML = '加载中...';
