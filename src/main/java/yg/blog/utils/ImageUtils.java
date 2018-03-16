@@ -115,11 +115,11 @@ public class ImageUtils {
          * @param width 缩放后的宽度
          * @param bb 比例不对时是否需要补白：true为补白; false为不补白;
          */
-        public final static void scale2(String srcImageFile, String result, int height, int width, boolean bb) {
+        public final static void scale2(File srcImageFile, String result, int height, int width, boolean bb) {
             try {
                 double ratio = 0.0; // 缩放比例
-                File f = new File(srcImageFile);
-                BufferedImage bi = ImageIO.read(f);
+//                File f = new File(srcImageFile);
+                BufferedImage bi = ImageIO.read(srcImageFile);
                 Image itemp = bi.getScaledInstance(width, height, bi.SCALE_SMOOTH);
                 // 计算比例
                 if ((bi.getHeight() > height) || (bi.getWidth() > width)) {

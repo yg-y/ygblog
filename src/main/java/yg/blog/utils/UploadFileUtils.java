@@ -51,10 +51,10 @@ import java.util.Random;
 
                     // 传入的文件保存的路径，如果没有先进行创建文件
                     //创建保存图片的文件夹
-                    String FilePathImg = request.getSession().getServletContext().getRealPath("/") + "upload/image/"+ "/"
+                    String FilePathImg = request.getSession().getServletContext().getRealPath("/") + "upload/image/"
                             + filename;
                     //创建保存其他文件的文件夹
-                    String FilePath = request.getSession().getServletContext().getRealPath("/") + "upload/file/"+ "/"
+                    String FilePath = request.getSession().getServletContext().getRealPath("/") + "upload/file/"
                             + filename;
 
                     System.err.println("未转换斜杠：" + FilePath);
@@ -82,8 +82,9 @@ import java.util.Random;
                     System.err.println(request.getSession().getServletContext().getRealPath("/") + "upload/");
                     System.err.println("原生FilePath : " + filepath);
 
+                    resultJson.put("path1",filepath);
                     //截取后的路径，存入数据库
-                    String str = filepath.substring(40);
+                    String str = filepath.substring(41);
                     System.err.println("截取后FilePath : " + str );
 
                     // 获取需要处理的文件

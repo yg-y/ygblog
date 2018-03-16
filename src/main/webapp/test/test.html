@@ -22,6 +22,16 @@
     <span>{{ result2 }}</span>
 </form>
 
+<form method="post" action="http://upload.qiniup.com/"
+      enctype="multipart/form-data">
+    <input name="key" type="hidden" value="UTF-8">
+    <input name="x:files" type="hidden" value="vfiles">
+    <input name="token" type="hidden" value="<upload_token>">
+    <input name="crc32" type="hidden" />
+    <input name="accept" type="hidden" />
+    <input name="file" type="file" />
+</form>
+
 <script src="https://cdn.bootcss.com/vue/2.0.3/vue.min.js"></script>
 <script type="text/javascript" src="demo.js"></script>
 </body>

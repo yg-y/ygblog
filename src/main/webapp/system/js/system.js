@@ -117,13 +117,19 @@ function editUpdate(){
 }
 
 function addImg(){
+    // FormData，新的form表单封装，具体可百度，但其实用法很简单，如下
+    var data = new FormData();
+    // 将文件加入到file中，后端可获得到参数名为“files”
+    data.append("files", file);
+
+    console.log(data);
     $.ajax({
             url:"/img/uploadImg",
             type:'POST',
-            cache: false,
-            data: {'files':new FormData($('#uploadform')[0])},
-            processData: false,
-            contentType: false,
+            data: data,
+            cache : false,
+            contentType : false,
+            processData : false,
             success:function(result){
                 if(result.status == 200){
                     location.reload();
@@ -132,7 +138,7 @@ function addImg(){
                 }
             },
             error:function(result){
-                alert("数据异常，请稍后再试！ " + result)
+                alert("数据异常，请稍后再试！ " + result.data)
             }
          })
 }
