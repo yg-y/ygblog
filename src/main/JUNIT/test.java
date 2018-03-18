@@ -5,6 +5,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import redis.clients.jedis.Jedis;
 import yg.blog.controller.BloguserController;
+import yg.blog.utils.QiniuUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -44,23 +45,28 @@ public class test {
 
 
     public static void main(String[] args) {
-        Jedis jedis = new Jedis();
-        List<String> list = new ArrayList<String>();
-        list.add("List Hello Redis!");
-        list.add("List Hello Java!");
-        list.add("List Hello Word!");
+//        Jedis jedis = new Jedis();
+//        List<String> list = new ArrayList<String>();
+//        list.add("List Hello Redis!");
+//        list.add("List Hello Java!");
+//        list.add("List Hello Word!");
+//
+//        Map<String,String> map = new HashMap<String, String>();
+//        map.put("1","Map Hello Redis!");
+//        map.put("2","Map Hello Java!");
+//        map.put("3","Map Hello Word!");
+//
+//        jedis.set("greeting", String.valueOf(list));
+//        jedis.set("map", String.valueOf(map));
+//
+//        System.err.println(jedis.get("map"));
+//        System.err.println(jedis.get("greeting"));
+            QiniuUtils qiniuUtils = new QiniuUtils();
+            qiniuUtils.delImage("2018-03-18/120274846643");
 
-        Map<String,String> map = new HashMap<String, String>();
-        map.put("1","Map Hello Redis!");
-        map.put("2","Map Hello Java!");
-        map.put("3","Map Hello Word!");
-
-        jedis.set("greeting", String.valueOf(list));
-        jedis.set("map", String.valueOf(map));
-
-        System.err.println(jedis.get("map"));
-        System.err.println(jedis.get("greeting"));
     }
+
+
 }
 
 

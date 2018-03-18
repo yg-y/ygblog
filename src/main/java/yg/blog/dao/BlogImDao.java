@@ -35,4 +35,6 @@ public interface BlogImDao {
     Integer del(String id);
 
     Integer updateEdit(BlogImg blogImg);
+
+    String upload(String file, String imgtext, String s);
 }

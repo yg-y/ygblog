@@ -16,4 +16,6 @@ public interface BlogImgService {
     Integer del(String id);
 
     Integer updateEdit(BlogImg blogImg);
+
+    String upload(String file, String imgtext);
 }

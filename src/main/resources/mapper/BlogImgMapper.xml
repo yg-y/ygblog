@@ -70,6 +70,8 @@
   <sql id="Base_Column_List">
     img_id, like_id, img_name, img_path, img_content, img_date
   </sql>
+  <!--upload 将Controller接受过来的参数封装好 -->
+  <insert id="upload" parameterType="java.lang.String"></insert>
   <!--updateEdit-->
   <update id="updateEdit" parameterType="yg.blog.pojo.BlogImg">
     UPDATE ygblog.blog_img

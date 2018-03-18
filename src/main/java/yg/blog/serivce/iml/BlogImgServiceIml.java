@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import yg.blog.dao.BlogImDao;
 import yg.blog.pojo.BlogImg;
 import yg.blog.serivce.BlogImgService;
+import yg.blog.utils.YgblogUtils;
 
 import java.util.List;
 
@@ -32,5 +33,11 @@ public class BlogImgServiceIml implements BlogImgService {
     @Override
     public Integer updateEdit(BlogImg blogImg) {
         return blogImDao.updateEdit(blogImg);
+    }
+
+    @Override
+    public String upload(String file, String imgtext) {
+        YgblogUtils y = new YgblogUtils();
+        return blogImDao.upload(file,imgtext,y.date_yyyy_mm_dd());
     }
 }
