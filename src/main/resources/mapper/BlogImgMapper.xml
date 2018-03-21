@@ -7,7 +7,7 @@
     <result column="img_name" jdbcType="VARCHAR" property="imgName" />
     <result column="img_path" jdbcType="VARCHAR" property="imgPath" />
     <result column="img_content" jdbcType="VARCHAR" property="imgContent" />
-    <result column="img_date" jdbcType="DATE" property="imgDate" />
+    <result column="img_date" jdbcType="VARCHAR" property="imgDate" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -71,7 +71,11 @@
     img_id, like_id, img_name, img_path, img_content, img_date
   </sql>
   <!--upload 将Controller接受过来的参数封装好 -->
-  <insert id="upload" parameterType="java.lang.String"></insert>
+  <insert id="upload" parameterType="yg.blog.pojo.BlogImg">
+    INSERT INTO `ygblog`.`blog_img`
+    ( `img_name`, `img_path`, `img_content`, `img_date`)
+    VALUES (#{imgName},#{imgPath},#{imgContent},#{imgDate})
+  </insert>
   <!--updateEdit-->
   <update id="updateEdit" parameterType="yg.blog.pojo.BlogImg">
     UPDATE ygblog.blog_img

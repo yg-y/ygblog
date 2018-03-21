@@ -1,16 +1,20 @@
 package yg.blog.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import org.apache.commons.fileupload.disk.DiskFileItem;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import yg.blog.pojo.BlogImg;
 import yg.blog.serivce.BlogImgService;
+import yg.blog.utils.ImageUtils;
 import yg.blog.utils.QiniuUtils;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -78,14 +82,25 @@ public class BlogImgController {
 
     @ResponseBody
     @RequestMapping(value = "/uploadImg",method = RequestMethod.POST)
-    public JSONObject uploadImg(@RequestParam(value = "files")MultipartFile file,@RequestParam(value = "imgtext")String imgtext,
-                                HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public JSONObject uploadImg(@RequestParam(value = "files")MultipartFile file,@RequestParam(value = "imgtext")String imgtext) throws IOException {
         QiniuUtils qiniuUtils = new QiniuUtils();
-        String upload = qiniuUtils.upload(file);
-        blogImgService.upload(upload,imgtext);
+        CommonsMultipartFile cf = (CommonsMultipartFile)file;
+        DiskFileItem fi = (DiskFileItem) cf.getFileItem();
+        File file1 = fi.getStoreLocation();
+        ImageUtils imageUtils = new ImageUtils();
+        String path2 = "webapp/static/imgChange/";
+        ImageUtils.scale2(file1,path2,1080,1920,true);
+        String path3 = path2+"/"+ file.getOriginalFilename();
+        File file4 = new File(path3);
+        FileInputStream inputStream = new FileInputStream(file4);
+        MultipartFile multipartFile = new MockMultipartFile(file4.getName(),inputStream);
+        String upload = qiniuUtils.upload(multipartFile);
         JSONObject jsonObject = new JSONObject();
         if (upload!=null){
-            return (JSONObject) jsonObject.put("status",200);
+            Integer upload1 = blogImgService.upload(upload, imgtext);
+            if (upload1 <= 0 ){
+                return (JSONObject) jsonObject.put("status",200);
+            }
         }
         return (JSONObject) jsonObject.put("status",500);
     }

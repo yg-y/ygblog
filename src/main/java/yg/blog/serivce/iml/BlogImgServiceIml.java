@@ -36,8 +36,13 @@ public class BlogImgServiceIml implements BlogImgService {
     }
 
     @Override
-    public String upload(String file, String imgtext) {
+    public Integer upload(String file, String imgtext) {
         YgblogUtils y = new YgblogUtils();
-        return blogImDao.upload(file,imgtext,y.date_yyyy_mm_dd());
+        BlogImg blogImg = new BlogImg();
+        blogImg.setImgName(file);
+        blogImg.setImgPath(file);
+        blogImg.setImgContent(imgtext);
+        blogImg.setImgDate(y.date_yyyy_mm_dd());
+        return blogImDao.upload(blogImg);
     }
 }

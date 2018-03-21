@@ -15,7 +15,7 @@ public class BlogImg {
 
     private String imgContent;
 
-    private Date imgDate;
+    private String imgDate;
 
     public Integer getImgId() {
         return imgId;
@@ -58,11 +58,11 @@ public class BlogImg {
     }
 
     @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
-    public Date getImgDate() {
+    public String getImgDate() {
         return imgDate;
     }
 
-    public void setImgDate(Date imgDate) {
+    public void setImgDate(String imgDate) {
         this.imgDate = imgDate;
     }
 }

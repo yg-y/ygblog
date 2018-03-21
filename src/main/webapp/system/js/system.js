@@ -132,7 +132,7 @@ function addImg(){
             processData: false,//用于对data参数进行序列化处理 这里必须false
             contentType: false, //必须
             success:function(result){
-            console.log(result)
+            console.log("成功："+result)
                 if(result.status == 200){
                     location.reload();
                 }else{
@@ -140,8 +140,9 @@ function addImg(){
                 }
             },
             error:function(result){
-                console.log(result)
-                alert("数据异常，请稍后再试！ " + result.data)
+                location.reload();
+                console.log("失敗："+result)
+                //alert("数据异常，请稍后再试！ " + result.data.status)
             }
          })
 }
