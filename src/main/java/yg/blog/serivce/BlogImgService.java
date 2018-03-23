@@ -18,4 +18,6 @@ public interface BlogImgService {
     Integer updateEdit(BlogImg blogImg);
 
     Integer upload(String file, String imgtext);
+
+    List<BlogImg> queryImgindex(String s);
 }

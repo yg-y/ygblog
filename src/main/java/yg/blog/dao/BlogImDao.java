@@ -38,4 +38,5 @@ public interface BlogImDao {
 
     Integer upload(BlogImg blogImg);
 
+    List<BlogImg> queryImgindex(String s);
 }

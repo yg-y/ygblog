@@ -39,10 +39,16 @@ public class BlogImgServiceIml implements BlogImgService {
     public Integer upload(String file, String imgtext) {
         YgblogUtils y = new YgblogUtils();
         BlogImg blogImg = new BlogImg();
+        blogImg.setIndexImg("1");
         blogImg.setImgName(file);
         blogImg.setImgPath(file);
         blogImg.setImgContent(imgtext);
         blogImg.setImgDate(y.date_yyyy_mm_dd());
         return blogImDao.upload(blogImg);
+    }
+
+    @Override
+    public List<BlogImg> queryImgindex(String s) {
+        return blogImDao.queryImgindex(s);
     }
 }

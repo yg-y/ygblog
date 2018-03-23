@@ -28,6 +28,24 @@ public class BlogImgController {
     BlogImgService blogImgService;
 
 
+    /**
+     * 加载主页图片
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/indexImg")
+    public Map<String,Object> indexImg(){
+        List<BlogImg> blogImgs = blogImgService.queryImgindex("1");
+        Map<String,Object> map = new HashMap<String, Object>();
+        if (blogImgs!=null && blogImgs.size()>0){
+            map.put("status",200);
+            map.put("data",blogImgs);
+            return map;
+        }
+        return (Map<String, Object>) map.put("status",500);
+    }
+
+
     @ResponseBody
     @RequestMapping(value = "/system",method = RequestMethod.GET)
     public Map<String,Object> systems(){
@@ -84,17 +102,7 @@ public class BlogImgController {
     @RequestMapping(value = "/uploadImg",method = RequestMethod.POST)
     public JSONObject uploadImg(@RequestParam(value = "files")MultipartFile file,@RequestParam(value = "imgtext")String imgtext) throws IOException {
         QiniuUtils qiniuUtils = new QiniuUtils();
-        CommonsMultipartFile cf = (CommonsMultipartFile)file;
-        DiskFileItem fi = (DiskFileItem) cf.getFileItem();
-        File file1 = fi.getStoreLocation();
-        ImageUtils imageUtils = new ImageUtils();
-        String path2 = "webapp/static/imgChange/";
-        ImageUtils.scale2(file1,path2,1080,1920,true);
-        String path3 = path2+"/"+ file.getOriginalFilename();
-        File file4 = new File(path3);
-        FileInputStream inputStream = new FileInputStream(file4);
-        MultipartFile multipartFile = new MockMultipartFile(file4.getName(),inputStream);
-        String upload = qiniuUtils.upload(multipartFile);
+        String upload = qiniuUtils.upload(file);
         JSONObject jsonObject = new JSONObject();
         if (upload!=null){
             Integer upload1 = blogImgService.upload(upload, imgtext);
