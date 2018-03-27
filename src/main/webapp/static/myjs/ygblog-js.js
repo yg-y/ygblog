@@ -1,3 +1,41 @@
+$(document).ready(function() {
+    find();
+});
+
+function find(){
+    $.ajax({
+        url:"/img/indexImg",
+        type:"GET",
+        // contentType: "from/date",
+        success:function(result){
+            if(result.status == 200){
+                console.log(result.data[0].imgPath)
+                console.log(result.data[1].imgPath)
+                // // alert(result.data[0].imgPath);
+                new Vue({
+                   el:'#indexId',
+                   data:{
+                       images1:"http://p5o4jj7kb.bkt.clouddn.com/"+result.data[0].imgPath,
+                           images2:"http://p5o4jj7kb.bkt.clouddn.com/"+result.data[1].imgPath,
+                           images3:"http://p5o4jj7kb.bkt.clouddn.com/"+result.data[2].imgPath,
+                           images4:"http://p5o4jj7kb.bkt.clouddn.com/"+result.data[3].imgPath,
+                           images5:"http://p5o4jj7kb.bkt.clouddn.com/"+result.data[4].imgPath,
+                           images6:"http://p5o4jj7kb.bkt.clouddn.com/"+result.data[5].imgPath,
+                           images7:"http://p5o4jj7kb.bkt.clouddn.com/"+result.data[6].imgPath,
+                           images8:"http://p5o4jj7kb.bkt.clouddn.com/"+result.data[7].imgPath}
+                })
+            }else {
+                alert("error")
+            }
+        },
+        error:function (result) {
+            if(result == "error"){
+                alert("error")
+            }
+        }
+    });
+}
+
 function run() {
     $.ajax({
         url:"bloguser/select",

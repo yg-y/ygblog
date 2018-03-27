@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50720
 File Encoding         : 65001
 
-Date: 2018-03-05 19:16:52
+Date: 2018-03-24 00:16:24
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -38,16 +38,21 @@ DROP TABLE IF EXISTS `blog_img`;
 CREATE TABLE `blog_img` (
   `img_id` int(6) NOT NULL AUTO_INCREMENT,
   `like_id` int(6) DEFAULT NULL,
-  `img_name` varchar(20) DEFAULT NULL,
+  `img_name` varchar(255) DEFAULT NULL,
   `img_path` varchar(255) DEFAULT NULL,
   `img_content` varchar(255) DEFAULT NULL,
-  `img_date` date DEFAULT NULL,
+  `img_date` varchar(255) DEFAULT NULL,
+  `img_index` varchar(100) DEFAULT NULL COMMENT '标识哪个页面的图片',
   PRIMARY KEY (`img_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of blog_img
 -- ----------------------------
+INSERT INTO `blog_img` VALUES ('1', null, '2018-03-20/images/93801483389', '2018-03-20/images/93801483389', '从前初识这世间', '2018-03-20', '1');
+INSERT INTO `blog_img` VALUES ('3', null, '2018-03-20/images/990499077748', '2018-03-20/images/990499077748', '你好世界', '2018-03-20', '1');
+INSERT INTO `blog_img` VALUES ('4', null, '2018-03-20/images/329921619863', '2018-03-20/images/329921619863', '万般留恋', '2018-03-20', '1');
+INSERT INTO `blog_img` VALUES ('5', null, '2018-03-23/images/928899641197', '2018-03-23/images/928899641197', '值支持1080', '2018-03-23', '1');
 
 -- ----------------------------
 -- Table structure for blog_like
