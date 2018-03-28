@@ -68,7 +68,7 @@ function del(result){
                 find();
                 location.reload();
             }else{
-                alert('数据异常，请稍后再试...')
+                alert('数据异常，请稍后再试...');
             }
         },
         error:function (results) {
