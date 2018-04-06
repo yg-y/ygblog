@@ -20,4 +20,10 @@ public interface BlogImgService {
     Integer upload(String file, String imgtext);
 
     List<BlogImg> queryImgindex(String s);
+
+    List<BlogImg> selectByWorks();
+
+    Integer uploadImgByWorks(String upload, String imgtext);
+
+    List<BlogImg> worksDate();
 }

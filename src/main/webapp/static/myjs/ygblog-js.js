@@ -15,14 +15,15 @@ function find(){
                 new Vue({
                    el:'#indexId',
                    data:{
-                       images1:"http://p5o4jj7kb.bkt.clouddn.com/"+result.data[0].imgPath,
-                           images2:"http://p5o4jj7kb.bkt.clouddn.com/"+result.data[1].imgPath,
-                           images3:"http://p5o4jj7kb.bkt.clouddn.com/"+result.data[2].imgPath,
-                           images4:"http://p5o4jj7kb.bkt.clouddn.com/"+result.data[3].imgPath,
-                           images5:"http://p5o4jj7kb.bkt.clouddn.com/"+result.data[4].imgPath,
-                           images6:"http://p5o4jj7kb.bkt.clouddn.com/"+result.data[5].imgPath,
-                           images7:"http://p5o4jj7kb.bkt.clouddn.com/"+result.data[6].imgPath,
-                           images8:"http://p5o4jj7kb.bkt.clouddn.com/"+result.data[7].imgPath}
+                       images1:result.data[0].imgPath,
+                       images2:result.data[1].imgPath,
+                       images3:result.data[2].imgPath,
+                       images4:result.data[3].imgPath,
+                       images5:result.data[4].imgPath,
+                       images6:result.data[5].imgPath,
+                       images7:result.data[6].imgPath,
+                       images8:result.data[7].imgPath
+                   }
                 })
             }else {
                 alert("error")
@@ -30,7 +31,7 @@ function find(){
         },
         error:function (result) {
             if(result == "error"){
-                alert("error")
+                alert("亲！请检查一下网络哦！")
             }
         }
     });
@@ -51,7 +52,7 @@ function run() {
 
         },
         error:function (result) {
-          alert("数据出错！");
+            alert("亲！请检查一下网络哦！")
         }
     });
 }

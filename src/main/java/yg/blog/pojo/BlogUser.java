@@ -102,5 +102,4 @@ public class BlogUser {
     public void setUserDate(Date userDate) {
         this.userDate = userDate;
     }
-
 }

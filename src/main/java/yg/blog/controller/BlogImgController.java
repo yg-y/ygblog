@@ -100,11 +100,12 @@ public class BlogImgController {
 
     @ResponseBody
     @RequestMapping(value = "/uploadImg",method = RequestMethod.POST)
-    public JSONObject uploadImg(@RequestParam(value = "files")MultipartFile file,@RequestParam(value = "imgtext")String imgtext) throws IOException {
+    public JSONObject uploadImg(@RequestParam(value = "files")MultipartFile file,@RequestParam(value = "imgtext",required = false)String imgtext) throws IOException {
         QiniuUtils qiniuUtils = new QiniuUtils();
         String upload = qiniuUtils.upload(file);
         JSONObject jsonObject = new JSONObject();
         if (upload!=null){
+            upload = "http://p5o4jj7kb.bkt.clouddn.com/"+upload;
             Integer upload1 = blogImgService.upload(upload, imgtext);
             if (upload1 <= 0 ){
                 return (JSONObject) jsonObject.put("status",200);
@@ -113,4 +114,47 @@ public class BlogImgController {
         return (JSONObject) jsonObject.put("status",500);
     }
 
+    //works
+    @ResponseBody
+    @RequestMapping(value = "/works",method = RequestMethod.GET)
+    public Map<String,Object> works(){
+        List<BlogImg> result = blogImgService.selectByWorks();
+        Map<String,Object> map = new HashMap<String, Object>();
+        if (result.size()!=0 && result.size()>0) {
+            map.put("status",200);
+            map.put("data",result);
+            return map;
+        }
+        return (Map<String, Object>) map.put("status",500);
+    }
+
+//    uploadImgByWorks
+    @ResponseBody
+    @RequestMapping(value = "/uploadImgByWorks",method = RequestMethod.POST)
+    public JSONObject uploadImgByWorks(@RequestParam(value = "files")MultipartFile file,@RequestParam(value = "imgtext",required = false)String imgtext) throws IOException {
+        QiniuUtils qiniuUtils = new QiniuUtils();
+        String upload = qiniuUtils.upload(file);
+        JSONObject jsonObject = new JSONObject();
+        if (upload!=null){
+            upload = "http://p5o4jj7kb.bkt.clouddn.com/"+upload;
+            Integer upload1 = blogImgService.uploadImgByWorks(upload, imgtext);
+            if (upload1 <= 0 ){
+                return (JSONObject) jsonObject.put("status",200);
+            }
+        }
+        return (JSONObject) jsonObject.put("status",500);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/worksDate",method = RequestMethod.GET)
+    public Map<String,Object> worksDate(){
+        List<BlogImg> result = blogImgService.worksDate();
+        Map<String,Object> map = new HashMap<String, Object>();
+        if (result.size()!=0 && result.size()>0) {
+            map.put("status",200);
+            map.put("data",result);
+            return map;
+        }
+        return (Map<String, Object>) map.put("status",500);
+    }
 }

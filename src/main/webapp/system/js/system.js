@@ -147,5 +147,32 @@ function addImg(){
          })
 }
 
+function worksData() {
+    $.ajax({
+        url:"/img/worksDate",
+        type:"GET",
+        contentType: "application/x-www-form-urlencoded",
+        success:function(result){
+            console.log(result.data);
+            if(result.status == 200){
+                $('#app1  tbody').empty('');
+                new Vue({
+                    el:'#app1',
+                    data:{
+                        images:result.data
+                    }
+                })
+            }else {
+                alert("error")
+            }
+        },
+        error:function (result) {
+            if(result == "error"){
+                alert("error")
+            }
+        }
+    });
+}
+
 
 

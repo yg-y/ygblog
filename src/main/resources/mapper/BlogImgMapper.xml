@@ -71,6 +71,16 @@
   <sql id="Base_Column_List">
     img_id, like_id, img_name, img_path, img_content, img_date
   </sql>
+
+  <!--查询作品页图片selectByWorks-->
+  <select id="selectByWorks" resultMap="BaseResultMap">
+    SELECT img_path,img_content,img_date
+    FROM blog_img
+    WHERE img_index = 2
+    ORDER BY
+    blog_img.img_id DESC
+  </select>
+
   <!--查询主页图片 queryImgimdex-->
   <select id="queryImgindex" resultMap="BaseResultMap">
     SELECT img_path,img_content
@@ -81,7 +91,7 @@
   <!--upload 将Controller接受过来的参数封装好 -->
   <insert id="upload" parameterType="yg.blog.pojo.BlogImg">
     INSERT INTO `ygblog`.`blog_img`
-    ( `img_name`, `img_path`, `img_content`, `img_date`,'img_index')
+    ( `img_name`, `img_path`, `img_content`, `img_date`,`img_index`)
     VALUES (#{imgName},#{imgPath},#{imgContent},#{imgDate},#{imgIndex})
   </insert>
   <!--updateEdit-->
@@ -116,9 +126,21 @@
         blog_img.img_content,
         blog_img.img_date
     FROM blog_img
+    WHERE img_index = 1
     ORDER BY blog_img.img_date DESC
   </select>
 
+  <!--worksDate-->
+  <select id="worksDate" resultMap="BaseResultMap">
+    SELECT blog_img.img_id,
+    blog_img.img_name,
+    blog_img.img_path,
+    blog_img.img_content,
+    blog_img.img_date
+    FROM blog_img
+    WHERE img_index = 2
+    ORDER BY blog_img.img_date DESC
+  </select>
   <select id="selectByExample" parameterType="yg.blog.pojo.BlogImgExample" resultMap="BaseResultMap">
     select
     <if test="distinct">

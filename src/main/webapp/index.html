@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-for="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
@@ -32,26 +32,6 @@
                 </div>
         </div>
 </div>
-            <!--导航条-->
-<!--<div class="row">-->
-    <!--<div class="col-md-12">-->
-        <!--<div class="center-block">-->
-            <!--&lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;-->
-            <!--<div class="navbar-header">-->
-                <!--<a class="navbar-brand" href="index.html">首页</a>-->
-            <!--</div>-->
-            <!--<div class="navbar-header">-->
-                <!--<a class="navbar-brand" href="works/works.html">作品</a>-->
-            <!--</div>-->
-            <!--<div class="navbar-header">-->
-                <!--<a class="navbar-brand" href="webpage/forum.html">论坛</a>-->
-            <!--</div>-->
-            <!--<div class="navbar-header">-->
-                <!--<a class="navbar-brand" href="webpage/personal.html">个人</a>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
         <div class="row">
             <div class="col-md-12">
                 <div class="vertical-center">
@@ -78,51 +58,51 @@
         <div class="row">
             <hr style="width: 70% ; color: #2aabd2 ;">
         </div>
-<divs id="indexId">
+<div id="indexId">
         <div class="row" style=" margin-left:5%; margin-right: 5%;  margin-top: 2%">
             <div class="col-md-3">
-                <a href="#">
-                    <img :src="http://p5o4jj7kb.bkt.clouddn.com/img.images1" alt="..." class="img-thumbnail"/>
+                <a :href="images1">
+                    <img :src="images1" alt="..." class="img-thumbnail"/>
                 </a>
             </div>
             <div class="col-md-3">
-                <a href="http://localhost:8088/static/imgChange/img05-indexscale2.jpg">
-                    <img :src="http://p5o4jj7kb.bkt.clouddn.com/{{images2}}" alt="..." class="img-thumbnail"/>
+                <a :href="images2">
+                    <img :src="images2" alt="..." class="img-thumbnail"/>
                 </a>
             </div>
             <div class="col-md-3">
-                <a href="#">
+                <a :href="images3">
                     <img  :src="images3" alt="..." class="img-thumbnail"/>
                 </a>
             </div>
             <div class="col-md-3">
-                <a href="#">
+                <a :href="images4">
                     <img  :src="images4" alt="..." class="img-thumbnail"/>
                 </a>
             </div>
         </div>
     <div class="row" style=" margin-left:5%; margin-right: 5%;  margin-top: 2%">
         <div class="col-md-3">
-            <a href="#">
+            <a :href="images5">
                 <img  :src="images5" alt="..." class="img-thumbnail"/>
             </a>
         </div>
-        <div class="col-md-3"><a href=#">
+        <div class="col-md-3"><a :href="images6">
             <img  :src="images6" class="img-thumbnail"/>
         </a>
         </div>
         <div class="col-md-3">
-            <a href="#">
+            <a :href="images7">
                 <img  :src="images7" alt="..." class="img-thumbnail"/>
             </a>
         </div>
         <div class="col-md-3">
-            <a href="#">
-                <img  :src="http://p5o4jj7kb.bkt.clouddn.com/{{images8}}" alt="..." class="img-thumbnail"/>
+            <a :href="images8">
+                <img  :src="images8" alt="..." class="img-thumbnail"/>
             </a>
         </div>
     </div>
-</divs>
+</div>
 
     <div class="row">
         <div class="col-md-12">
@@ -164,8 +144,6 @@
             <h6 align="center"><a style="color: #949494">Copyright © 追光逐影 &nbsp;|&nbsp;欢迎联系</a></h6>
         </div>
     </div>
-
-</div>
 
 </body>
 </html>

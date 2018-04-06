@@ -8,6 +8,7 @@ import yg.blog.serivce.BlogImgService;
 import yg.blog.utils.YgblogUtils;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class BlogImgServiceIml implements BlogImgService {
@@ -39,9 +40,12 @@ public class BlogImgServiceIml implements BlogImgService {
     public Integer upload(String file, String imgtext) {
         YgblogUtils y = new YgblogUtils();
         BlogImg blogImg = new BlogImg();
-        blogImg.setIndexImg("1");
-        blogImg.setImgName(file);
+        blogImg.setImgIndex("1");
+        blogImg.setImgName(UUID.randomUUID().toString().replaceAll("-",""));
         blogImg.setImgPath(file);
+        if (imgtext.isEmpty()){
+            imgtext = "";
+        }
         blogImg.setImgContent(imgtext);
         blogImg.setImgDate(y.date_yyyy_mm_dd());
         return blogImDao.upload(blogImg);
@@ -50,5 +54,31 @@ public class BlogImgServiceIml implements BlogImgService {
     @Override
     public List<BlogImg> queryImgindex(String s) {
         return blogImDao.queryImgindex(s);
+    }
+
+    @Override
+    public List<BlogImg> selectByWorks() {
+
+        return  blogImDao.selectByWorks();
+    }
+
+    @Override
+    public Integer uploadImgByWorks(String upload, String imgtext) {
+        YgblogUtils y = new YgblogUtils();
+        BlogImg blogImg = new BlogImg();
+        blogImg.setImgIndex("2");
+        blogImg.setImgName(UUID.randomUUID().toString().replaceAll("-",""));
+        blogImg.setImgPath(upload);
+        if (imgtext.isEmpty()){
+            imgtext = "";
+        }
+        blogImg.setImgContent(imgtext);
+        blogImg.setImgDate(y.date_yyyy_mm_dd());
+        return blogImDao.upload(blogImg);
+    }
+
+    @Override
+    public List<BlogImg> worksDate() {
+        return blogImDao.worksDate();
     }
 }
