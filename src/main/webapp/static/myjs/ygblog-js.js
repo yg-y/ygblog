@@ -8,6 +8,7 @@ function find(){
         type:"GET",
         // contentType: "from/date",
         success:function(result){
+            console.log(result)
             if(result.status == 200){
                 console.log(result.data[0].imgPath)
                 console.log(result.data[1].imgPath)
