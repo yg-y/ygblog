@@ -28,7 +28,7 @@
                     <p>一个特别热爱摄影的小伙子，为了自己的目标</p>
                     <p>在这里分享了自己的光影</p>
                     <p>也在这里开始新的故事</p>
-                    <p><a class="btn btn-info btn-lg" role="button" onclick="run()">了解他</a></p>
+                    <p><button type="button" class="btn btn-info" data-toggle="modal" data-target=".bs-example-modal-lg">了解他</button></p>
                 </div>
         </div>
 </div>
@@ -144,6 +144,67 @@
             <h6 align="center"><a style="color: #949494">Copyright © 追光逐影 &nbsp;|&nbsp;欢迎联系</a></h6>
         </div>
     </div>
+
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">关于我</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3"><img src="static/img/geren.jpg" class="img-circle" style="width: 50%"></div>
+                    <div class="col-md-6">
+                        <h3>姓名：杨广</h3>
+                        <br/>
+                        <h5>出生日期：1995/12/12</h5>
+                        <h5>微信：y_627756022</h5>
+                        <h5>爱好：编程、摄影、旅游、唱歌</h5>
+                        <h5>联系方式：y627756022@163.com</h5>
+                        <h5>个人简介：一个酷爱摄影的小伙子，立志成为一个摄影界</h5>
+                        <h5>最会敲代码的旅游家</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <hr style="width: 70% ; color: #2aabd2 ;">
+                </div>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4">
+                        <h3>本项目使用后端技术</h3>
+                        <br/>
+                        <h5>·业务层框架：Spring</h5>
+                        <h5>·视图层框架：SpringMVC</h5>
+                        <h5>·持久层框架：MyBatis</h5>
+                        <h5>·日志管理：Log4J</h5>
+                            <h5>·项目jar版本管理：Maven</h5>
+                                <h5>·项目版本管理：Git</h5>
+                                    <h5>·代码托管：GitHub</h5>
+                                        <h5>·运行服务器：Tomcat8.5</h5>
+
+                    </div>
+                    <div class="col-md-5">
+                        <h3>本项目使用前端端技术</h3>
+                        <br/>
+                        <h5>·样式：Bootsrap</h5>
+                        <h5>·逻辑：JavaScript、JQuery</h5>
+                        <h5>·数据绑定：VUE.JS</h5>
+                        <h5>·图片显示：第三方瀑布流插件</h5>
+
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

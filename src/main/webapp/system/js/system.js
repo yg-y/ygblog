@@ -155,7 +155,7 @@ function worksData() {
         success:function(result){
             console.log(result.data);
             if(result.status == 200){
-                $('#app1  tbody').empty('');
+                $('#tbody tr').empty('');
                 new Vue({
                     el:'#app1',
                     data:{
