@@ -1,20 +1,14 @@
 package yg.blog.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import org.apache.commons.fileupload.disk.DiskFileItem;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import yg.blog.pojo.BlogImg;
 import yg.blog.serivce.BlogImgService;
-import yg.blog.utils.ImageUtils;
 import yg.blog.utils.QiniuUtils;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;

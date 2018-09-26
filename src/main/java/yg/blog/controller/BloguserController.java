@@ -1,20 +1,14 @@
 package yg.blog.controller;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.jdbc.support.incrementer.HsqlMaxValueIncrementer;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import yg.blog.pojo.BlogImg;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import yg.blog.pojo.BlogUser;
 import yg.blog.serivce.BlogUserService;
-import yg.blog.utils.ImageUtils;
 
-import javax.jws.WebMethod;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
